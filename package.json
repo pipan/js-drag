@@ -1,0 +1,33 @@
+{
+  "name": "@wildebeest/drag",
+  "version": "0.1.0",
+  "description": "Draging event module",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --declaration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipan/js-drag.git"
+  },
+  "dependencies": {
+    "@wildebeest/common": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.3"
+  },
+  "keywords": [
+    "js",
+    "module",
+    "drag",
+    "event",
+    "mouse"
+  ],
+  "author": "Peter Gasparik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pipan/js-drag/issues"
+  },
+  "homepage": "https://github.com/pipan/js-drag#readme"
+}
