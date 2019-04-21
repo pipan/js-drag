@@ -2,16 +2,16 @@ import { Emitter } from "@wildebeest/common";
 
 export class DragableElement
 {
-    protected element: any;
+    protected element: HTMLElement;
     protected emitter: Emitter;
-    protected mousePosition: any;
+    protected mousePosition: MouseEvent;
 
-    constructor(element: any, emitter: Emitter)
+    constructor(element: HTMLElement, emitter: Emitter)
     {
         this.element = element;
         this.emitter = emitter;
 
-        this.element.addEventListener('mousedown', (event: any) => {
+        this.element.addEventListener('mousedown', (event: MouseEvent) => {
             if (event.button != 0) {
                 return;
             }
@@ -20,7 +20,7 @@ export class DragableElement
             window.addEventListener('mousemove', this.onMove.bind(this));
         });
 
-        window.addEventListener('mouseup', (event: any) => {
+        window.addEventListener('mouseup', (event: MouseEvent) => {
             if (event.button != 0 || !this.mousePosition) {
                 return;
             }
@@ -29,15 +29,15 @@ export class DragableElement
         });
     }
 
-    protected onMove(event: any): void
+    protected onMove(event: MouseEvent): void
     {
         if (!this.mousePosition) {
             return;
         }
         event.preventDefault();
         let diff: any = {
-            'vertical': event.y - this.mousePosition.y,
-            'horizontal': event.x - this.mousePosition.x
+            vertical: event.clientY - this.mousePosition.clientY,
+            horizontal: event.clientX - this.mousePosition.clientX
         };
         this.mousePosition = event;
         this.emitter.emit('drag', diff);
