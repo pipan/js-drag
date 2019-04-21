@@ -1,9 +1,9 @@
 import { Emitter } from "@wildebeest/common";
 export declare class DragableElement {
-    protected element: any;
+    protected element: HTMLElement;
     protected emitter: Emitter;
-    protected mousePosition: any;
-    constructor(element: any, emitter: Emitter);
-    protected onMove(event: any): void;
+    protected mousePosition: MouseEvent;
+    constructor(element: HTMLElement, emitter: Emitter);
+    protected onMove(event: MouseEvent): void;
     getEmitter(): Emitter;
 }

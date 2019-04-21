@@ -27,8 +27,8 @@ var DragableElement = (function () {
         }
         event.preventDefault();
         var diff = {
-            'vertical': event.y - this.mousePosition.y,
-            'horizontal': event.x - this.mousePosition.x
+            vertical: event.clientY - this.mousePosition.clientY,
+            horizontal: event.clientX - this.mousePosition.clientX
         };
         this.mousePosition = event;
         this.emitter.emit('drag', diff);
