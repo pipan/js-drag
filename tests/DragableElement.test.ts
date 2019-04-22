@@ -1,7 +1,7 @@
 import 'ts-jest';
 import { Application } from '@wildebeest/js-modules';
 import { DragModule } from '../src/DragModule';
-import { DragableElement } from '../src/DragableElement';
+import { DragableComponent } from '../src/DragableComponent';
 import { DomService, EmitterService } from '@wildebeest/common';
 
 let app: Application = new Application();
@@ -17,8 +17,8 @@ test("test draging event - left click", () => {
     };
     let element: HTMLElement = domService.create('<div></div>');
     domService.insert([element], document.body);
-    let dragable: DragableElement = new DragableElement(element, emitterService.createEmitter());
-    dragable.getEmitter().on('drag', (event: any) => {
+    let dragable: DragableComponent = new DragableComponent(element, emitterService.createEmitter());
+    dragable.getEmitter().on('wbDrag', (event: any) => {
         value.vertical += event.vertical;
         value.horizontal += event.horizontal;
     })
@@ -48,8 +48,8 @@ test.each([[1], [2], [3], [4]])("test draging event - other buttons", (buttonNum
     };
     let element: HTMLElement = domService.create('<div></div>');
     domService.insert([element], document.body);
-    let dragable: DragableElement = new DragableElement(element, emitterService.createEmitter());
-    dragable.getEmitter().on('drag', (event: any) => {
+    let dragable: DragableComponent = new DragableComponent(element, emitterService.createEmitter());
+    dragable.getEmitter().on('wbDrag', (event: any) => {
         value.vertical += event.vertical;
         value.horizontal += event.horizontal;
     })

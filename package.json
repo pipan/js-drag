@@ -14,8 +14,9 @@
     "url": "git+https://github.com/pipan/js-drag.git"
   },
   "dependencies": {
-    "@wildebeest/js-modules": "^0.1.0",
-    "@wildebeest/common": "^0.2.0"
+    "@wildebeest/common": "^0.2.0",
+    "@wildebeest/component": "^0.1.2",
+    "@wildebeest/js-modules": "^0.1.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",

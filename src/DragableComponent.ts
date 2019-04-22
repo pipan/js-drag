@@ -1,6 +1,7 @@
 import { Emitter } from "@wildebeest/common";
+import { Component } from "@wildebeest/component";
 
-export class DragableElement
+export class DragableComponent implements Component
 {
     protected element: HTMLElement;
     protected emitter: Emitter;
@@ -40,11 +41,16 @@ export class DragableElement
             horizontal: event.clientX - this.mousePosition.clientX
         };
         this.mousePosition = event;
-        this.emitter.emit('drag', diff);
+        this.emitter.emit('wbDrag', diff);
     }
 
     public getEmitter(): Emitter
     {
         return this.emitter;
+    }
+
+    public getElement(): HTMLElement
+    {
+        return this.element;
     }
 }

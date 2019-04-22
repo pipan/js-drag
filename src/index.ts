@@ -1,2 +1,2 @@
 export { DragModule } from './DragModule';
-export { DragableElement } from './DragableElement';
+export { DragableComponent } from './DragableComponent';
