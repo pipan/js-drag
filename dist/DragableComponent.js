@@ -19,6 +19,11 @@ var DragableComponent = (function () {
             }
             _this.mousePosition = null;
             window.removeEventListener('mousemove', _this.onMove.bind(_this));
+            _this.emitter.emit('wbDragended', {
+                vertical: 0,
+                horizontal: 0,
+                mouseEvent: event
+            });
         });
     }
     DragableComponent.prototype.onMove = function (event) {
@@ -28,7 +33,8 @@ var DragableComponent = (function () {
         event.preventDefault();
         var diff = {
             vertical: event.clientY - this.mousePosition.clientY,
-            horizontal: event.clientX - this.mousePosition.clientX
+            horizontal: event.clientX - this.mousePosition.clientX,
+            mouseEvent: event
         };
         this.mousePosition = event;
         this.emitter.emit('wbDrag', diff);
