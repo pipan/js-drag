@@ -27,6 +27,11 @@ export class DragableComponent implements Component
             }
             this.mousePosition = null;
             window.removeEventListener('mousemove', this.onMove.bind(this));
+            this.emitter.emit('wbDragended', {
+                vertical: 0,
+                horizontal: 0,
+                mouseEvent: event
+            });
         });
     }
 
@@ -38,7 +43,8 @@ export class DragableComponent implements Component
         event.preventDefault();
         let diff: any = {
             vertical: event.clientY - this.mousePosition.clientY,
-            horizontal: event.clientX - this.mousePosition.clientX
+            horizontal: event.clientX - this.mousePosition.clientX,
+            mouseEvent: event
         };
         this.mousePosition = event;
         this.emitter.emit('wbDrag', diff);
