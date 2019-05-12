@@ -1,6 +1,6 @@
 {
   "name": "@wildebeest/drag",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Draging event module",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
